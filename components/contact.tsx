@@ -1,13 +1,13 @@
 "use client";
 
 import React, { useState } from "react";
-import SectionHeading from "./section-heading";
-import { FaPaperPlane } from "react-icons/fa";
-import { motion } from "framer-motion";
 import { useSectionInView } from "@/lib/hooks/hooks";
 import { sendEmail } from "@/actions/sendEmail";
-import { toast } from "sonner";
 import { Spinner } from "./spinner";
+import { motion } from "framer-motion";
+import SectionHeading from "./section-heading";
+import { FaPaperPlane } from "react-icons/fa";
+import { toast } from "sonner";
 
 function Contact() {
   const { ref } = useSectionInView("Contact");
@@ -48,7 +48,6 @@ function Contact() {
         className="mt-10 flex flex-col dark:text-black"
         action={async (formData) => {
           setSendFormloading(true);
-          console.log("🚀 ~ action={ ~ sendFormloading:", sendFormloading);
           setTimeout(async () => {
             await sendEmail(formData).then((resp) => {
               toast.success(
